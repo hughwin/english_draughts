@@ -1,6 +1,8 @@
 package main.java.hughwin.draughts.controller;
 
 import main.java.hughwin.draughts.view.AppView;
+import main.java.hughwin.draughts.view.Board;
+import main.java.hughwin.draughts.view.Board;
 
 public class AppController {
 
@@ -10,7 +12,7 @@ public class AppController {
     }
 
     public void startGame(String name){
-
+        new Board();
     }
 
     public void quitGame(){
