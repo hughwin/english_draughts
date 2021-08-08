@@ -5,6 +5,7 @@ import main.java.hughwin.draughts.view.AppView;
 import main.java.hughwin.draughts.view.Board;
 
 import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.net.Socket;
 
 public class Client {
@@ -21,14 +22,15 @@ public class Client {
 
     public void startGame(String name){
         try {
-            System.out.println("Starting client");
+            System.out.println("Starting client...");
             this.name = "name";
             server = new Socket(LOCALHOST, PORT);
-            new Board();
+            ObjectOutputStream objectOutputStream = new ObjectOutputStream(server.getOutputStream());
         }
         catch (IOException e){
             e.printStackTrace();
         }
+        new Board();
     }
 
     public void quitGame(){

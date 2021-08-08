@@ -10,6 +10,7 @@ public class Main {
 
     public static void main(String[] args) {
         new Client();
-        new Server(PORT);
+        Thread serverThread = new Thread(new Server(PORT));
+        serverThread.start();
     }
 }
