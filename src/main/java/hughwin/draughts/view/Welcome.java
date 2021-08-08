@@ -2,7 +2,7 @@ package main.java.hughwin.draughts.view;
 
 import javax.swing.*;
 import java.awt.*;
-import main.java.hughwin.draughts.controller.AppController;
+import main.java.hughwin.draughts.controller.Client;
 
 public class Welcome extends JPanel {
 
@@ -11,7 +11,7 @@ public class Welcome extends JPanel {
     private static final String SUB_TITLE = "<html><i>Please select an option below! </i><html>";
 
 
-    public Welcome(AppController appController) {
+    public Welcome(Client client) {
 
 
         String name = JOptionPane.showInputDialog(this, "What's your name?");
@@ -31,7 +31,7 @@ public class Welcome extends JPanel {
 
         JPanel buttons = new JPanel(new GridBagLayout());
         JButton play = new JButton("Play Game");
-        play.addActionListener(e -> appController.startGame(name));
+        play.addActionListener(e -> client.startGame(name));
         buttons.add(play, gbc);
 
         JButton exit = new JButton("Exit");

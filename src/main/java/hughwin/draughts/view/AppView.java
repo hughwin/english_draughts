@@ -1,6 +1,6 @@
 package main.java.hughwin.draughts.view;
 
-import main.java.hughwin.draughts.controller.AppController;
+import main.java.hughwin.draughts.controller.Client;
 
 import javax.swing.*;
 import java.awt.event.WindowAdapter;
@@ -9,10 +9,10 @@ import java.awt.event.WindowListener;
 
 public class AppView extends JFrame {
     private static final String WINDOW_TITLE = "Twenty One";
-    private AppController appController;
+    private Client client;
     private JPanel mainPanel = new JPanel();
 
-    public AppView(AppController appController) {
+    public AppView(Client client) {
         super();
         WindowListener exitListener = new WindowAdapter() {
             @Override
@@ -22,18 +22,18 @@ public class AppView extends JFrame {
                         "Exit Confirmation", JOptionPane.YES_NO_OPTION,
                         JOptionPane.QUESTION_MESSAGE, null, null, null);
                 if (confirm == 0) {
-                    appController.quitGame();
+                    client.quitGame();
                     System.exit(0);
                 }
             }
         };
         this.addWindowListener(exitListener);
 
-        this.appController = appController;
+        this.client = client;
         setTitle(WINDOW_TITLE);
         setSize(600, 400);
         add(mainPanel);
-        mainPanel.add(new Welcome(this.appController), "home");
+        mainPanel.add(new Welcome(this.client), "home");
 
         setVisible(true);
 

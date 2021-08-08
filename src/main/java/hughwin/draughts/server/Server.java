@@ -3,6 +3,10 @@ package main.java.hughwin.draughts.server;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Vector;
 
 public class Server implements Runnable {
 
@@ -10,6 +14,7 @@ public class Server implements Runnable {
     private ServerSocket serverSocket;
     private Socket clientSocket;
     private int id = 0;
+    private List<ClientRunner> clients = Collections.synchronizedList(new ArrayList<>());
 
     public Server(int port){
         PORT = port;
